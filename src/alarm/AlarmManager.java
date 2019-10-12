@@ -87,6 +87,7 @@ public class AlarmManager {
 		buttonPanel.add(addButton);
 		buttonPanel.add(editButton);
 		buttonPanel.add(deleteButton);
+		
 	}
 }
 
