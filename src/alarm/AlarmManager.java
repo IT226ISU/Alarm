@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JFormattedTextField;
 import javax.swing.JComboBox;
 import javax.swing.SpinnerDateModel;
@@ -14,11 +15,15 @@ public class AlarmManager {
 	private JPanel buttonPanel,alarmSetPanel,alarmListPanel;
 	private JScrollPane alarmSetScrollPane,alarmListScrollPane;
 	private JSplitPane alarmPane,splitPane;
-	private JFrame frame= new JFrame("Alarm Manager");
+	private JButton addButton,editButton,deleteButton;
+	/** This is the JFrame window that the user will see **/
+	private JFrame frame;
 	/**
 	 * Default Constructor
 	 */
-	public AlarmManager() {}
+	public AlarmManager() {
+		frame= new JFrame("Alarm Manager");
+	}
 	
 	/**
 	 * Main Method -- runs the program.
@@ -49,6 +54,7 @@ public class AlarmManager {
 		//Set resize rules
 		alarmPane.setResizeWeight(0.25);
 		splitPane.setResizeWeight(1.0);
+		initButtons();
 		
 		//JFrame
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -56,6 +62,31 @@ public class AlarmManager {
 		frame.pack();
 		frame.setVisible(true);
 	}
+	
+	/**
+	 * Create and initialize buttons for buttonPanel
+	 */
+	private void initButtons() {
+		//Create buttons
+		addButton=new JButton("Add");
+		editButton=new JButton("Edit");
+		deleteButton=new JButton("Delete");
 
+		//Button Tooltips
+		addButton.setToolTipText("Click this button to add your alarm to the list");
+		editButton.setToolTipText("Click this button to edit the selected alarm");
+		deleteButton.setToolTipText("Click this button to delete the selected alarm");
+
+		//These Buttons will be enabled when they can be used
+		editButton.setEnabled(false);
+		deleteButton.setEnabled(false);
+
+		//Set Listeners for Buttons
+
+		//Add Buttons to Panel
+		buttonPanel.add(addButton);
+		buttonPanel.add(editButton);
+		buttonPanel.add(deleteButton);
+	}
 }
 
