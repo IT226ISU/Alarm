@@ -14,6 +14,7 @@ public class AlarmManager {
 	private JPanel buttonPanel,alarmSetPanel,alarmListPanel;
 	private JScrollPane alarmSetScrollPane,alarmListScrollPane;
 	private JSplitPane alarmPane,splitPane;
+	private JFrame frame= new JFrame("Alarm Manager");
 	/**
 	 * Default Constructor
 	 */
@@ -50,7 +51,6 @@ public class AlarmManager {
 		splitPane.setResizeWeight(1.0);
 		
 		//JFrame
-		JFrame frame= new JFrame("Alarm Manager");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add(splitPane);
 		frame.pack();
