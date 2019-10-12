@@ -5,10 +5,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
+import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JComboBox;
 import javax.swing.SpinnerDateModel;
-public class Alarm {
+public class AlarmManager {
 	
 	private JPanel buttonPanel,alarmSetPanel,alarmListPanel;
 	private JScrollPane alarmSetScrollPane,alarmListScrollPane;
@@ -16,14 +17,14 @@ public class Alarm {
 	/**
 	 * Default Constructor
 	 */
-	public Alarm() {}
+	public AlarmManager() {}
 	
 	/**
 	 * Main Method -- runs the program.
 	 * @param args runtime arguments
 	 */
 	public static void main(String[] args) {
-		Alarm a=new Alarm();
+		AlarmManager a=new AlarmManager();
 		SwingUtilities.invokeLater(new Runnable() {
 		    public void run() {
 		        a.createAndShowGUI();
