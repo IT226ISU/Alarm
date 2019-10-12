@@ -30,18 +30,26 @@ public class Alarm {
 		    }
 		});
 	}
+	/**
+	 * Creates GUI components
+	 */
 	private void createAndShowGUI() {
-		JFrame frame= new JFrame("Alarm Manager");
+		//Create JPanels
 		buttonPanel=new JPanel();
 		alarmSetPanel=new JPanel();
-		alarmSetScrollPane=new JScrollPane(alarmSetPanel);
 		alarmListPanel=new JPanel();
+		//Add alarm JPanels to JScrollPanes
+		alarmSetScrollPane=new JScrollPane(alarmSetPanel);
 		alarmListScrollPane=new JScrollPane(alarmListPanel);
+		//Create JSplitPanes
 		alarmPane=new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,alarmSetScrollPane,alarmListScrollPane);
 		splitPane=new JSplitPane(JSplitPane.VERTICAL_SPLIT,alarmPane,buttonPanel);
+		//Set resize rules
+		alarmPane.setResizeWeight(0.25);
+		splitPane.setResizeWeight(1.0);
 		
-		
-		
+		//JFrame
+		JFrame frame= new JFrame("Alarm Manager");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add(splitPane);
 		frame.pack();
