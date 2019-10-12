@@ -12,8 +12,8 @@ import javax.swing.JComboBox;
 import javax.swing.SpinnerDateModel;
 public class AlarmManager {
 	
-	private JPanel buttonPanel,alarmSetPanel,alarmListPanel;
-	private JScrollPane alarmSetScrollPane,alarmListScrollPane;
+	private JPanel buttonPanel,alarmListPanel,alarmSetPanel;
+	private JScrollPane alarmListScrollPane,alarmSetScrollPane;
 	private JSplitPane alarmPane,splitPane;
 	private JButton addButton,editButton,deleteButton;
 	/** This is the JFrame window that the user will see **/
@@ -43,13 +43,13 @@ public class AlarmManager {
 	private void createAndShowGUI() {
 		//Create JPanels
 		buttonPanel=new JPanel();
-		alarmSetPanel=new JPanel();
 		alarmListPanel=new JPanel();
+		alarmSetPanel=new JPanel();
 		//Add alarm JPanels to JScrollPanes
-		alarmSetScrollPane=new JScrollPane(alarmSetPanel);
 		alarmListScrollPane=new JScrollPane(alarmListPanel);
+		alarmSetScrollPane=new JScrollPane(alarmSetPanel);
 		//Create JSplitPanes
-		alarmPane=new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,alarmSetScrollPane,alarmListScrollPane);
+		alarmPane=new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,alarmListScrollPane,alarmSetScrollPane);
 		splitPane=new JSplitPane(JSplitPane.VERTICAL_SPLIT,alarmPane,buttonPanel);
 		//Set resize rules
 		alarmPane.setResizeWeight(0.25);
