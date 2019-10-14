@@ -54,7 +54,7 @@ public class AlarmManager {
 		//Set resize rules
 		alarmPane.setResizeWeight(0.25);
 		//splitPane.setResizeWeight(1.0);
-		//initButtons();
+		initButtons();
 		
 		//JFrame
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
