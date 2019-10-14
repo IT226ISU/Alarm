@@ -58,7 +58,7 @@ public class AlarmManager {
 		
 		//JFrame
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().add(splitPane);
+		frame.getContentPane().add(alarmPane);
 		frame.pack();
 		frame.setVisible(true);
 	}
