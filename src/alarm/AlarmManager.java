@@ -47,14 +47,14 @@ public class AlarmManager {
 		alarmSetPanel=new JPanel();
 		//Add alarm JPanels to JScrollPanes
 		alarmListScrollPane=new JScrollPane(alarmListPanel);
-		alarmSetScrollPane=new JScrollPane(alarmSetPanel);
+		//alarmSetScrollPane=new JScrollPane(alarmSetPanel);
 		//Create JSplitPanes
-		alarmPane=new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,alarmListScrollPane,alarmSetScrollPane);
-		splitPane=new JSplitPane(JSplitPane.VERTICAL_SPLIT,alarmPane,buttonPanel);
+		alarmPane=new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,alarmListScrollPane,alarmSetPanel);
+		//splitPane=new JSplitPane(JSplitPane.VERTICAL_SPLIT,alarmPane,buttonPanel);
 		//Set resize rules
 		alarmPane.setResizeWeight(0.25);
-		splitPane.setResizeWeight(1.0);
-		initButtons();
+		//splitPane.setResizeWeight(1.0);
+		//initButtons();
 		
 		//JFrame
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -84,9 +84,9 @@ public class AlarmManager {
 		//Set Listeners for Buttons
 
 		//Add Buttons to Panel
-		buttonPanel.add(addButton);
-		buttonPanel.add(editButton);
-		buttonPanel.add(deleteButton);
+		//buttonPanel.add(addButton);
+		alarmListPanel.add(editButton);
+		alarmListPanel.add(deleteButton);
 		
 	}
 }
