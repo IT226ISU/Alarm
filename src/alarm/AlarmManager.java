@@ -56,6 +56,8 @@ public class AlarmManager {
 		//splitPane.setResizeWeight(1.0);
 		initButtons();
 		
+		alarmListPanel.add(buttonPanel);
+		
 		//JFrame
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add(alarmPane);
@@ -85,8 +87,8 @@ public class AlarmManager {
 
 		//Add Buttons to Panel
 		//buttonPanel.add(addButton);
-		alarmListPanel.add(editButton);
-		alarmListPanel.add(deleteButton);
+		buttonPanel.add(editButton);
+		buttonPanel.add(deleteButton);
 		
 	}
 }
