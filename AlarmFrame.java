@@ -9,40 +9,43 @@ public class AlarmFrame extends JFrame implements ActionListener
 		JPanel panel = new JPanel();
 		frame.add(panel);
 		
+		SpinnerDateModel year = new SpinnerDateModel();
+		JSpinner model = new JSpinner(year);
+		panel.add(model);
 		
-		
-	    String[] hourStrings = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
+	   /* String[] hourStrings = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
 	    String[] minuteStrings = {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15",
 	    		"16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33",
 	    		"34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51",
 	    		"52", "53", "54", "55", "56", "57", "58", "59"};
 	    String[] dayNightStrings = {"AM", "PM"};
 	    String[] monthStrings = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
-	    String[] dayStrings = {"00", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15",
+	    String[] dayStrings = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15",
 	    		"16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"};
 	    String[] yearStrings = {"2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030"};
-
+*/
 	    
 	    
 	    
 	    //Create the combo box
-	    JComboBox hourList = new JComboBox(hourStrings);
+		JTextField optionalMessage = new JTextField();
+		optionalMessage.setEditable(true);
+		optionalMessage.setColumns(10);
+		
+		
+/*	    JComboBox hourList = new JComboBox(hourStrings);
 	    hourList.setSelectedIndex(0);
-	    hourList.addActionListener(this);
-	    
-	    JComboBox minuteList = new JComboBox(minuteStrings);
+	    hourList.addActionListener(this);*/
+
+/*	    JComboBox minuteList = new JComboBox(minuteStrings);
 	    minuteList.setSelectedIndex(0);
 	    minuteList.addActionListener(this);
 	    
 	    JComboBox dayNightList = new JComboBox(dayNightStrings);
 	    dayNightList.setSelectedIndex(0);
-	    dayNightList.addActionListener(this);
-	    
-		JTextField optionalMessage = new JTextField();
-		optionalMessage.setEditable(true);
-		optionalMessage.setColumns(15);
+	    dayNightList.addActionListener(this);*/
 
-	    JComboBox monthList = new JComboBox(monthStrings);
+/*	    JComboBox monthList = new JComboBox(monthStrings);
 	    monthList.setSelectedIndex(0);
 	    monthList.addActionListener(this);
 	    
@@ -52,7 +55,7 @@ public class AlarmFrame extends JFrame implements ActionListener
 	    
 	    JComboBox yearList = new JComboBox(yearStrings);
 	    yearList.setSelectedIndex(0);
-	    yearList.addActionListener(this);
+	    yearList.addActionListener(this);*/
 	    
 	    
 	    
@@ -60,7 +63,14 @@ public class AlarmFrame extends JFrame implements ActionListener
 	    
 	    
 		//Labels of the combo boxes
-		JLabel label = new JLabel("Hour");
+	    JLabel label4 = new JLabel("Optional Message");
+	    panel.add(label4);
+		panel.add(optionalMessage);   
+	    
+		JButton button = new JButton("Submit");
+	    panel.add(button);  
+	    
+/*		JLabel label = new JLabel("Hour");
 		panel.add(label);
 	    panel.add(hourList);
 	    
@@ -82,18 +92,12 @@ public class AlarmFrame extends JFrame implements ActionListener
 	        
 	    JLabel label7 = new JLabel("Year");
 	    panel.add(label7);
-	    panel.add(yearList);
+	    panel.add(yearList);*/
 	    
-	    JLabel label4 = new JLabel("Optional Message");
-	    panel.add(label4);
-		panel.add(optionalMessage);   
-	    
-		JButton button = new JButton("Submit");
-	    panel.add(button);  
-	    
+
 	    
 	    //setting frame size and visibility
-		frame.setSize(325,175);
+		frame.setSize(250,175);
 		frame.setVisible(true);
 		}
 	
