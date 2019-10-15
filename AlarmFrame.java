@@ -1,17 +1,28 @@
 //import java.awt.*;
+import java.awt.*;
+import java.awt.GridLayout;
 import java.awt.event.*;
+import java.util.Date;
 import javax.swing.*;
 
-public class AlarmFrame extends JFrame implements ActionListener
+public class AlarmFrame extends JFrame
 {
+	SpinnerDateModel year = new SpinnerDateModel();
+	JTextField optionalMessage = new JTextField();
+
+	
 	public AlarmFrame() {
 		JFrame frame = new JFrame("Alarms");
-		JPanel panel = new JPanel();
-		frame.add(panel);
+		Container pane = frame.getContentPane();
+		pane.setLayout(new GridLayout(5,1));
+/*		JPanel panel = new JPanel();
+		JPanel panel2 = new JPanel();*/
+		//frame.add(panel);
+		//frame.add(panel2);
 		
-		SpinnerDateModel year = new SpinnerDateModel();
+	
 		JSpinner model = new JSpinner(year);
-		panel.add(model);
+		
 		
 	   /* String[] hourStrings = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
 	    String[] minuteStrings = {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15",
@@ -28,7 +39,6 @@ public class AlarmFrame extends JFrame implements ActionListener
 	    
 	    
 	    //Create the combo box
-		JTextField optionalMessage = new JTextField();
 		optionalMessage.setEditable(true);
 		optionalMessage.setColumns(10);
 		
@@ -63,12 +73,17 @@ public class AlarmFrame extends JFrame implements ActionListener
 	    
 	    
 		//Labels of the combo boxes
+		JLabel label = new JLabel("Alarm");
+		pane.add(label);
+		pane.add(model);
+		
 	    JLabel label4 = new JLabel("Optional Message");
-	    panel.add(label4);
-		panel.add(optionalMessage);   
+	    pane.add(label4);
+		pane.add(optionalMessage);   
 	    
 		JButton button = new JButton("Submit");
-	    panel.add(button);  
+	    pane.add(button);  
+	    button.addActionListener(new ButtonActionListener());
 	    
 /*		JLabel label = new JLabel("Hour");
 		panel.add(label);
@@ -97,19 +112,30 @@ public class AlarmFrame extends JFrame implements ActionListener
 
 	    
 	    //setting frame size and visibility
-		frame.setSize(250,175);
+		frame.setSize(300,175);
 		frame.setVisible(true);
 		}
 	
 	//action event listener
-    public void actionPerformed(ActionEvent e) {
-        JComboBox cb = (JComboBox)e.getSource();
-        String num = (String)cb.getSelectedItem();
+public class ButtonActionListener implements ActionListener
+{
+    public void actionPerformed(ActionEvent e){
+    	String s;
+    	Date y;
+    	
+ 
+    	y = year.getDate();
+    	s = optionalMessage.getText();
+    	//System.out.println(y);
+    	//System.out.println(s);
     }
+}
+
     
     
     //main program
 	public static void main(String args[]) {
 		AlarmFrame af = new AlarmFrame();
 	}
+
 }
