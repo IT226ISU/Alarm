@@ -30,7 +30,7 @@ public class Saver {
 	}
 	
 	public Saver(Date time) {
-		this.message = null;
+		this.message = "";
 		this.time = time;
 		this.snooze = 0;
 		toXML();

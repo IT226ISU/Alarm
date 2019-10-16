@@ -5,15 +5,14 @@ import java.awt.event.*;
 import java.util.Date;
 import javax.swing.*;
 
-public class AlarmFrame extends JFrame
+public class AlarmFrame
 {
 	SpinnerDateModel year = new SpinnerDateModel();
 	JTextField optionalMessage = new JTextField();
-
+	JFrame frame = new JFrame("Alarms");
 	
 	public AlarmFrame() {
-		JFrame frame = new JFrame("Alarms");
-		Container pane = frame.getContentPane();
+		JPanel pane=new JPanel();
 		pane.setLayout(new GridLayout(5,1));
 	
 		JSpinner model = new JSpinner(year);
@@ -37,14 +36,29 @@ public class AlarmFrame extends JFrame
 		JButton button = new JButton("Submit");
 	    pane.add(button);  
 	    button.addActionListener(new ButtonActionListener());
-	    
-
+	    triggerAlarm("test",0);
 	    
 	    //setting frame size and visibility
+	    frame.add(pane);
+	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(300,175);
 		frame.setVisible(true);
 		}
-	
+	public void triggerAlarm(String message,int snoozes) {
+		String outputMessage=message;
+		if (snoozes>0) {
+			outputMessage+="\n Snoozed "+snoozes+" times.";
+		}
+		Object[] options = {"Snooze","Dismiss"};
+		int n = JOptionPane.showOptionDialog(frame,
+				outputMessage,
+				"Alarm",
+				JOptionPane.YES_NO_OPTION,
+				JOptionPane.QUESTION_MESSAGE,
+				null,     //do not use a custom Icon
+				options,  //the titles of buttons
+				options[0]); //default button title
+		}
 	//action event listener
 public class ButtonActionListener implements ActionListener
 {
