@@ -13,6 +13,7 @@ public class AlarmFrame
 	
 	public AlarmFrame() {
 		JPanel pane=new JPanel();
+		
 		pane.setLayout(new GridLayout(5,1));
 	
 		JSpinner model = new JSpinner(year);
@@ -58,6 +59,14 @@ public class AlarmFrame
 				null,     //do not use a custom Icon
 				options,  //the titles of buttons
 				options[0]); //default button title
+		//System.out.println(n);
+		if (n==1) {
+			//User is finished with the alarm
+		}else {
+			//create a new alarm with the time in 1 minute from now, the same message, and 1 more snooze than before
+			new Saver(new Date(java.util.Calendar.getInstance().getTimeInMillis()+60000),message,snoozes+1);
+		}
+
 		}
 	//action event listener
 public class ButtonActionListener implements ActionListener
