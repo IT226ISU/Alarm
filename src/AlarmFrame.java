@@ -36,7 +36,7 @@ public class AlarmFrame
 		JButton button = new JButton("Submit");
 	    pane.add(button);  
 	    button.addActionListener(new ButtonActionListener());
-	    triggerAlarm("test",0);
+	    //triggerAlarm("test",0);
 	    
 	    //setting frame size and visibility
 	    frame.add(pane);
