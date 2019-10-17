@@ -15,7 +15,6 @@ import org.w3c.dom.NodeList;
 
 public class AlarmFirer extends TimerTask {
 	NodeList alarms;
-	Element root;
 	@Override
 	public void run() {
 		try {
