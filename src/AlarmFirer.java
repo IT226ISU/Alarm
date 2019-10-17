@@ -1,3 +1,5 @@
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimerTask;
 
@@ -15,6 +17,7 @@ import org.w3c.dom.NodeList;
 
 public class AlarmFirer extends TimerTask {
 	NodeList alarms;
+	@SuppressWarnings("deprecation")
 	@Override
 	public void run() {
 		try {
@@ -30,9 +33,17 @@ public class AlarmFirer extends TimerTask {
     		Node temp=alarms.item(i);
     		Element element = (Element) temp;
     		Date d=new Date();
-    		String now=d.toString();
-    		String alarmTime=element.getElementsByTagName("date").item(0).getTextContent();
-    		if (alarmTime.compareTo(now)<1) {
+    		
+    		DateFormat df = new SimpleDateFormat();
+    		Date alarmTime;
+    		try {
+    		alarmTime=df.parse(element.getElementsByTagName("date").item(0).getTextContent());
+    		}
+    		catch(Exception e) {
+    			alarmTime=new Date(element.getElementsByTagName("date").item(0).getTextContent());
+    		}
+    		
+    		if (alarmTime.compareTo(d)<1) {
     			Run.callAlarmSetOff(
     					element.getElementsByTagName("message").item(0).getTextContent(),
     					Integer.parseInt(element.getElementsByTagName("numSnooze").item(0).getTextContent()));

@@ -46,6 +46,7 @@ public class AlarmFrame
 		frame.setVisible(true);
 		}
 	public void triggerAlarm(String message,int snoozes) {
+		Toolkit.getDefaultToolkit().beep();
 		String outputMessage=message;
 		if (snoozes>0) {
 			outputMessage+="\n Snoozed "+snoozes+" times.";
