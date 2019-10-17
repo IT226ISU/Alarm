@@ -66,7 +66,6 @@ public class AlarmFrame
 			//create a new alarm with the time in 1 minute from now, the same message, and 1 more snooze than before
 			new Saver(new Date(java.util.Calendar.getInstance().getTimeInMillis()+60000),message,snoozes+1);
 		}
-
 		}
 	//action event listener
 public class ButtonActionListener implements ActionListener
